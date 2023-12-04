@@ -43,3 +43,11 @@ Content-Type: application/json
     }
 }
 ```
+
+## Content Negotiation
+
+In HTTP, content negotiation is the mechanism that is used for serving different representations of a resource to the same URI to help the user agent specify which representation is best suited for the user (for example, which document language, which image format, or which content encoding).
+
+The server uses this URL to choose one of the variants available–each variant is called a representation–and returns a specific representation to the client. The overall resource, as well as each of the representations, has a specific URL. Content negotiation determines how a specific representation is chosen when the resource is called.
+
+Usually the client sends the `Accept` header with the desired `Content-Type` and the server responds with the `Content-Type` that it can provide.
