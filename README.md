@@ -4,6 +4,8 @@ This repository holds all the code and notes produced during the ommunication Be
 ## Table of Contents
 
 1. [Rest](./rest/README.md)
+2. [GraphQL](./graphql/README.md)
+3. [gRPC](./grpc/README.md)
 
 ## Synchronous VS Asynchronous Communication
 
