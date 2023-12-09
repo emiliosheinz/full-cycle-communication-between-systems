@@ -27,7 +27,7 @@ func (r *mutationResolver) CreateCategory(ctx context.Context, input model.NewCa
 }
 
 // CreateCourse is the resolver for the createCourse field.
-func (r *mutationResolver) CreateCourse(ctx context.Context, course model.NewCourse) (*model.Course, error) {
+func (r *mutationResolver) CreateCourse(ctx context.Context, input model.NewCourse) (*model.Course, error) {
 	panic(fmt.Errorf("not implemented: CreateCourse - createCourse"))
 }
 

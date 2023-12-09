@@ -62,8 +62,8 @@ type ComplexityRoot struct {
 	}
 
 	Mutation struct {
-		CreateCategory func(childComplexity int, category model.NewCategory) int
-		CreateCourse   func(childComplexity int, course model.NewCourse) int
+		CreateCategory func(childComplexity int, input model.NewCategory) int
+		CreateCourse   func(childComplexity int, input model.NewCourse) int
 	}
 
 	Query struct {
@@ -73,8 +73,8 @@ type ComplexityRoot struct {
 }
 
 type MutationResolver interface {
-	CreateCategory(ctx context.Context, category model.NewCategory) (*model.Category, error)
-	CreateCourse(ctx context.Context, course model.NewCourse) (*model.Course, error)
+	CreateCategory(ctx context.Context, input model.NewCategory) (*model.Category, error)
+	CreateCourse(ctx context.Context, input model.NewCourse) (*model.Course, error)
 }
 type QueryResolver interface {
 	Categories(ctx context.Context) ([]*model.Category, error)
@@ -166,7 +166,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CreateCategory(childComplexity, args["category"].(model.NewCategory)), true
+		return e.complexity.Mutation.CreateCategory(childComplexity, args["input"].(model.NewCategory)), true
 
 	case "Mutation.createCourse":
 		if e.complexity.Mutation.CreateCourse == nil {
@@ -178,7 +178,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CreateCourse(childComplexity, args["course"].(model.NewCourse)), true
+		return e.complexity.Mutation.CreateCourse(childComplexity, args["input"].(model.NewCourse)), true
 
 	case "Query.categories":
 		if e.complexity.Query.Categories == nil {
@@ -324,14 +324,14 @@ func (ec *executionContext) field_Mutation_createCategory_args(ctx context.Conte
 	var err error
 	args := map[string]interface{}{}
 	var arg0 model.NewCategory
-	if tmp, ok := rawArgs["category"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("category"))
+	if tmp, ok := rawArgs["input"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
 		arg0, err = ec.unmarshalNNewCategory2githubᚗcomᚋemiliosheinzᚋfullᚑcycleᚑcbsᚑgraphqlᚋgraphᚋmodelᚐNewCategory(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["category"] = arg0
+	args["input"] = arg0
 	return args, nil
 }
 
@@ -339,14 +339,14 @@ func (ec *executionContext) field_Mutation_createCourse_args(ctx context.Context
 	var err error
 	args := map[string]interface{}{}
 	var arg0 model.NewCourse
-	if tmp, ok := rawArgs["course"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("course"))
+	if tmp, ok := rawArgs["input"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
 		arg0, err = ec.unmarshalNNewCourse2githubᚗcomᚋemiliosheinzᚋfullᚑcycleᚑcbsᚑgraphqlᚋgraphᚋmodelᚐNewCourse(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["course"] = arg0
+	args["input"] = arg0
 	return args, nil
 }
 
@@ -780,7 +780,7 @@ func (ec *executionContext) _Mutation_createCategory(ctx context.Context, field 
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CreateCategory(rctx, fc.Args["category"].(model.NewCategory))
+		return ec.resolvers.Mutation().CreateCategory(rctx, fc.Args["input"].(model.NewCategory))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -845,7 +845,7 @@ func (ec *executionContext) _Mutation_createCourse(ctx context.Context, field gr
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CreateCourse(rctx, fc.Args["course"].(model.NewCourse))
+		return ec.resolvers.Mutation().CreateCourse(rctx, fc.Args["input"].(model.NewCourse))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
