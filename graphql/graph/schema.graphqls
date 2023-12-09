@@ -30,5 +30,5 @@ type Query {
 
 type Mutation {
   createCategory(category: NewCategory!): Category!
-  addCourse(course: NewCourse!): Course!
+  createCourse(course: NewCourse!): Course!
 }
