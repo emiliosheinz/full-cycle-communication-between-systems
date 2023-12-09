@@ -8,4 +8,5 @@ import "github.com/emiliosheinz/full-cycle-cbs-graphql/internal/database"
 
 type Resolver struct {
 	CategoryDb *database.Category
+	CourseDb   *database.Course
 }
