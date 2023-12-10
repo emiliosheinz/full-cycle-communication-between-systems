@@ -33,3 +33,4 @@ Protocol buffers are a language-neutral, platform-neutral extensible mechanism f
 
 1. Follow the Quick Start guide to install the necessary tools: https://grpc.io/docs/languages/go/quickstart/
 1. Download the project's dependencies: `go mod download`
+1. Instal Evans: https://github.com/ktr0731/evans#installation
