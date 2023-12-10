@@ -16,10 +16,15 @@ Protocol buffers are a language-neutral, platform-neutral extensible mechanism f
 
 ## HTTP/2
 
-- The original name of HTTP/2 was SPDY (pronounced "SPeeDY"), invented by Google
-- It was released in 2015
 - It sends multiple requests between client and server in a single TCP connection
-- It is binary, instead of textual
+- It is binary, instead of textual, therefore more compact
 - It is fully multiplexed, instead of ordered and blocking
 - It allows servers to "push" responses proactively into client caches instead of waiting for a new request for each resource
 - Header compression is a default part of the protocol
+
+### Different types of HTTP/2 communication
+
+- Unary: classic request/response
+- Server streaming: client sends a request and server responds with a stream of data
+- Client streaming: client sends a stream of data and server responds with a single response
+- Bidirectional streaming: both client and server send a stream of data
