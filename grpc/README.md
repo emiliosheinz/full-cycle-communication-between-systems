@@ -28,3 +28,8 @@ Protocol buffers are a language-neutral, platform-neutral extensible mechanism f
 - Server streaming: client sends a request and server responds with a stream of data
 - Client streaming: client sends a stream of data and server responds with a single response
 - Bidirectional streaming: both client and server send a stream of data
+
+## Running locally
+
+1. Follow the Quick Start guide to install the necessary tools: https://grpc.io/docs/languages/go/quickstart/
+1. Download the project's dependencies: `go mod download`
